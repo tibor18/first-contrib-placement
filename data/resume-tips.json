@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Creating Professional Resumes with NovoResume",
+    "description": "Build visually appealing resumes that are both modern and ATS-friendly using NovoResume’s smart templates and formatting guidance.",
+    "category": "Tools & Builders",
+    "link": "https://novoresume.com"
+  },
+  {
+    "title": "Improving Your Resume’s Keyword Score with Jobscan",
+    "description": "Before you apply, scan your resume against real job descriptions to improve match rate and pass applicant-tracking systems effectively.",
+    "category": "Tools & Builders",
+    "link": "https://www.jobscan.co"
+  },
+  {
+    "title": "Design Like a Pro with Canva Resume Templates",
+    "description": "Use Canva’s free drag-and-drop templates to personalize your resume layout and add subtle design touches that make a strong visual impression.",
+    "category": "Tools & Builders",
+    "link": "https://www.canva.com/resumes/"
+  },
+  {
+    "title": "Stand Out with VisualCV’s Analytics and Templates",
+    "description": "VisualCV lets you track who views your resume and provides premium design templates used by professionals in every field.",
+    "category": "Tools & Builders",
+    "link": "https://www.visualcv.com"
+  },
+  {
+    "title": "Powerful Language: Using Action Verbs to Show Impact",
+    "description": "Replace passive wording with strong, measurable verbs that highlight your achievements. Recruiters love concise, results-driven sentences.",
+    "category": "Content",
+    "link": "https://zety.com/blog/resume-action-words"
+  },
+  {
+    "title": "Tailoring Your Resume for Every Opportunity",
+    "description": "A one-size-fits-all resume no longer works. Learn how to match your skills and projects to each job description using strategic keyword alignment.",
+    "category": "Content",
+    "link": "https://resumegenius.com/blog/resume-help/resume-guidelines#tailor-your-resume"
+  },
+  {
+    "title": "Numbers Speak Louder Than Words",
+    "description": "Turn your experience into measurable outcomes. Use data and metrics to quantify success and stand out in competitive hiring processes.",
+    "category": "Content",
+    "link": "https://novoresume.com/career-blog/how-to-list-work-experience-on-a-resume"
+  },
+  {
+    "title": "Designing a Resume That Gets Noticed",
+    "description": "Learn how layout, white space, and visual hierarchy affect how recruiters perceive your resume. Discover the ideal structure for clarity and professionalism.",
+    "category": "Formatting",
+    "link": "https://www.indeed.com/career-advice/resume-samples"
+  },
+  {
+    "title": "Common Resume Mistakes That Hurt First Impressions",
+    "description": "Even small typos or cluttered formatting can make you appear careless. Explore the most frequent resume errors—and how to fix them instantly.",
+    "category": "Common Mistakes",
+    "link": "https://www.themuse.com/advice/42-resume-dos-and-donts-every-job-seeker-should-know"
+  },
+  {
+    "title": "What to Leave Out of a Modern Resume",
+    "description": "Some personal details and outdated information can do more harm than good. Find out what employers really don’t need to see anymore.",
+    "category": "Common Mistakes",
+    "link": "https://www.indeed.com/career-advice/resumes-cover-letters/what-not-to-put-on-a-resume"
+  }
+]

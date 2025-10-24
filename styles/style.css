@@ -1957,3 +1957,235 @@ footer {
 .dark-mode .intro-card .highlight {
   color: #FFFFFF;
 }
+
+.cards-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 1rem;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.filter-section {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.btn.small {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background: linear-gradient(to right, #e0f7fa, #b2dfdb);
+}
+
+header {
+  background: linear-gradient(135deg, #28A6C7, #004d40);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tip-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  animation: slideIn 1s ease forwards;
+  opacity: 0;
+}
+
+.tip-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.tip-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.tip-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.tip-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.tip-card:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #e0f2f1, #ffffff);
+}
+
+h2 {
+  margin-top: 0;
+  color: #007c91;
+}
+
+a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007c91;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.read-more {
+  color: #007c91;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.more-content {
+  display: none;
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+/* Filter section spacing */
+#categoryFilter,
+label[for="categoryFilter"] {
+  margin-top: 1.5rem;
+}
+
+label[for="categoryFilter"] {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+#categoryFilter {
+  padding: 0.4rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Optional - celé zoskupenie pod banner */
+.filter-container {
+  margin: 2rem auto 1rem;
+  text-align: left;
+  width: 90%;
+  max-width: 900px;
+}
+
+/* === Filter Section Styling (shared by both pages) === */
+.filter-container {
+  text-align: center;
+  margin: 2rem auto 1rem;
+  width: 90%;
+  max-width: 800px;
+}
+
+.filter-container label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+  color: #003d33;
+}
+
+.filter-container select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #004d40;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-container select:hover {
+  border-color: #26a69a;
+  box-shadow: 0 0 5px rgba(38, 166, 154, 0.3);
+}
+
+.filter-container select:focus {
+  outline: none;
+  border-color: #00796b;
+  box-shadow: 0 0 6px rgba(0, 121, 107, 0.5);
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  background: linear-gradient(135deg, #007c91, #004d40);
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem 3rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #e0f2f1;
+}
+
+/* ========== FILTER SECTION (ako search bar) ========== */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: #dbeff0;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.filter-container label {
+  font-weight: 600;
+  color: #004d40;
+}
+
+.filter-container select {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #007c91;
+  background: white;
+  font-size: 1rem;
+  color: #004d40;
+  cursor: pointer;
+}
+
+/* ========== CARD ANIMATION (fade-in ako homepage) ========== */
+.tips-grid .tip-c

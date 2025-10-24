@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Software Engineer Resume – Google Example",
+    "company": "Google",
+    "industry": "Tech",
+    "description": "A clean, ATS-optimized resume format used by software engineers at top tech companies. Highlights problem-solving skills, measurable impact, and concise project summaries.",
+    "link": "https://www.tealhq.com/cv-example/google-software-engineer"
+  },
+  {
+    "title": "Data Analyst Resume – AnalytixMinds Solutions Example",
+    "company": "AnalytixMinds Solutions",
+    "industry": "Tech",
+    "description": "Data-driven resume layout emphasizing analytical skills, SQL/Python experience, and visualization tools like Power BI and Tableau.",
+    "link": "https://zety.com/blog/data-analyst-resume"
+  },
+  {
+    "title": "Financial Analyst Resume – Goldman Sachs Example",
+    "company": "Goldman Sachs",
+    "industry": "Finance",
+    "description": "A professional resume layout ideal for finance and investment roles. Focuses on quantitative analysis, reporting accuracy, and Excel modeling skills.",
+    "link": "https://www.myperfectresume.com/resume/examples/goldman-sachs"
+  },
+  {
+    "title": "Accountant Resume – Deloitte Example",
+    "company": "Deloitte",
+    "industry": "Finance",
+    "description": "Well-structured accounting resume emphasizing detail orientation, auditing, and compliance with IFRS and GAAP standards.",
+    "link": "https://www.livecareer.com/resume/examples/accounting/accountant"
+  },
+  {
+    "title": "Registered Nurse Resume – Clinic Nurse Example",
+    "company": "Clinic",
+    "industry": "Healthcare",
+    "description": "Example of a clear, patient-centered resume that balances technical medical expertise with compassionate communication and teamwork.",
+    "link": "https://resumeworded.com/clinic-nurse-resume-example"
+  },
+  {
+    "title": "Medical Assistant Resume – George Washington University Hospital\n Example",
+    "company": "George Washington University Hospital\n",
+    "industry": "Healthcare",
+    "description": "A professional healthcare resume template tailored for clinical support staff, emphasizing certifications, care coordination, and EHR systems.",
+    "link": "https://resumegenius.com/resume-samples/medical-assistant-resume-example"
+  },
+
+  {
+    "title": "Cybersecurity Analyst Resume – SOC / Blue Team Example",
+    "company": "Security / SOC Roles",
+    "industry": "Tech",
+    "description": "Resume style focused on security monitoring, incident response, SIEM tooling and certifications (Security+, CEH). Vhodné pre junior SOC analyst / cyber defense pozície.",
+    "link": "https://resumegenius.com/resume-examples/cyber-security-resume"
+  },
+  {
+    "title": "Product Manager Resume – Big Tech Style",
+    "company": "Slack / Google Style PM",
+    "industry": "Tech",
+    "description": "Ukážky PM resumé, ktoré pomohli kandidátom získať role v produktových tímoch vo veľkých tech firmách. Dôraz na dopad, metriky (engagement, growth %) a spoluprácu s engineeringom.",
+    "link": "https://www.beamjobs.com/resumes/product-manager-resume-examples"
+  },
+  {
+    "title": "Investment Banking Analyst Resume – JP Morgan Track",
+    "company": "JP Morgan / Morgan Stanley",
+    "industry": "Finance",
+    "description": "Formát používaný na entry-level analyst a summer analyst pozície v investičných bankách. Zdôrazňuje modelovanie, valuácie, M&A podporu a prácu s klientmi.",
+    "link": "https://igotanoffer.com/en/advice/investment-banking-resume-examples"
+  }
+
+]
