@@ -474,14 +474,12 @@ header {
 
 .checkbox-dropdown label {
   display: block;
-  margin: 0px 0;
   padding-top: 8px;
   width: 180px;
   font-size: 14px;
   border-top: 1px solid #2b2727;
   border-bottom: 1px solid #2b2727;
   padding-left: 8px;
-  border-radius: 0px;
   height: 25px;
 }
 
@@ -1831,7 +1829,6 @@ footer {
 
 .dark-mode #autocomplete-list div {
   border-color: white;
-  border: 1px solid white;
 }
 
 #autocomplete-list div {
@@ -2142,7 +2139,6 @@ label[for="categoryFilter"] {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin: 0px auto ;
   padding: 0 20px;
   text-align: center;
 }
