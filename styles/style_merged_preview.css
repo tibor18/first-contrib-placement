@@ -2114,7 +2114,7 @@ label[for="categoryFilter"] {
   outline: none;
   border-color: #00796b;
   box-shadow: 0 0 6px rgba(0, 121, 107, 0.5);
-+}
+}
 
 .hero-section {
   background: linear-gradient(135deg, #007c91, #004d40);
