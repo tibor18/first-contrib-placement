@@ -13,5 +13,5 @@ jobs:
         uses: cyb3r-jak3/html5validator-action@v7.2.0
         with:
           root: ./
-          exclude: node_modules
+          blacklist: node_modules
           css: true
