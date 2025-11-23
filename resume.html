@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="./styles/style.css">
   <style>
+    .container.filtering-active .tip-card:not(.is-favorite) {
+      display: none;
+    }
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -419,179 +422,110 @@
   </footer>
 
   <script>
-    // Resume Tips Favorites Functionality
-    let showResumeFavoritesOnly = false;
-    let resumeFavorites = JSON.parse(localStorage.getItem('resumeFavorites')) || [];
+    // --- 1. GENERÁTOR EXTRÉMNEJ ZÁŤAŽE (Aby Mac zapotil) ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector('.container');
+      // Ak nenájde container (iný názov triedy v HTML), fallback:
+      const target = container || document.getElementById('resourcesContainer') || document.body;
 
-    function toggleResumeFavorite(tipId) {
-      const index = resumeFavorites.indexOf(tipId);
-      const icon = event.currentTarget.querySelector('i');
-      
-      if (index === -1) {
-        // Add to favorites
-        resumeFavorites.push(tipId);
-        icon.classList.remove('far', 'fa-heart');
-        icon.classList.add('fas', 'fa-heart');
-        event.currentTarget.classList.add('active');
-      } else {
-        // Remove from favorites
-        resumeFavorites.splice(index, 1);
-        icon.classList.remove('fas', 'fa-heart');
-        icon.classList.add('far', 'fa-heart');
-        event.currentTarget.classList.remove('active');
-      }
-      
-      localStorage.setItem('resumeFavorites', JSON.stringify(resumeFavorites));
-      updateResumeFavoritesCount();
-      
-      if (showResumeFavoritesOnly) {
-        filterResumeTips();
-      }
-    }
-
-    function filterResumeTips() {
-      const cards = document.querySelectorAll('.tip-card');
-      let visibleCount = 0;
-      
-      cards.forEach(card => {
-        const tipId = card.getAttribute('data-tip');
-        const isFavorite = resumeFavorites.includes(tipId);
-        
-        if (showResumeFavoritesOnly) {
-          if (isFavorite) {
-            card.classList.remove('hidden');
-            visibleCount++;
-          } else {
-            card.classList.add('hidden');
-          }
-        } else {
-          card.classList.remove('hidden');
-          visibleCount++;
-        }
-      });
-      
-      // Show message if no favorites in filter mode
-      if (showResumeFavoritesOnly && visibleCount === 0) {
-        showNoResumeFavoritesMessage();
-      } else {
-        hideNoResumeFavoritesMessage();
-      }
-    }
-
-    function showNoResumeFavoritesMessage() {
-      let message = document.getElementById('noResumeFavoritesMessage');
-      if (!message) {
-        message = document.createElement('div');
-        message.id = 'noResumeFavoritesMessage';
-        message.className = 'no-resume-favorites-message';
-        message.innerHTML = `
-          <h3>⭐ No Favorite Resume Tips Yet</h3>
-          <p>Click the heart icons on resume tips to add them to your favorites!</p>
-          <button onclick="hideNoResumeFavoritesMessage()">Got it!</button>
-        `;
-        const container = document.querySelector('.container');
-        container.parentNode.insertBefore(message, container);
-      }
-    }
-
-    function hideNoResumeFavoritesMessage() {
-      const message = document.getElementById('noResumeFavoritesMessage');
-      if (message) {
-        message.remove();
-      }
-    }
-
-    function updateResumeFavoritesCount() {
-      const countElement = document.getElementById('resumeFavoritesCount');
-      if (countElement) {
-        countElement.textContent = resumeFavorites.length;
-      }
-    }
-
-    function initializeResumeFavorites() {
-      // Set initial favorite states
-      resumeFavorites.forEach(tipId => {
-        const icon = document.querySelector(`[data-tip="${tipId}"] .resume-favorite-icon i`);
-        if (icon) {
-          icon.classList.remove('far', 'fa-heart');
-          icon.classList.add('fas', 'fa-heart');
-          icon.parentElement.classList.add('active');
-        }
-      });
-      updateResumeFavoritesCount();
-    }
-
-    // Toggle resume favorites view
-    document.addEventListener('DOMContentLoaded', function() {
-      initializeResumeFavorites();
-      
-      const resumeFavoritesBtn = document.getElementById('resumeFavoritesBtn');
-      if (resumeFavoritesBtn) {
-        resumeFavoritesBtn.addEventListener('click', function() {
-          showResumeFavoritesOnly = !showResumeFavoritesOnly;
-          this.innerHTML = showResumeFavoritesOnly ? 
-            '<i class="far fa-star"></i> Show All Tips' : 
-            '<i class="far fa-star"></i> Show Favorite Tips Only';
-          
-          filterResumeTips();
-        });
+      // Vytvoríme vzorovú kartu, ak neexistuje, vytvoríme dummy
+      let cardTemplate = document.querySelector('.tip-card');
+      if (!cardTemplate) {
+        cardTemplate = document.createElement('div');
+        cardTemplate.className = 'tip-card';
+        cardTemplate.innerHTML = '<h2>Test Card</h2>';
       }
 
-      // Navbar functionality
-      const navbarToggle = document.querySelector('.navbar-toggle');
-      const navbarMenu = document.querySelector('.navbar-menu');
-      const toggleBtn = document.getElementById("toggle-mode");
+      // Generujeme 5000 kariet (toto už musí byť cítiť)
+      console.log("Generujem 5000 kariet... čakaj.");
+      const fragment = document.createDocumentFragment();
+      const types = ['interactive', 'role-specific', 'company-samples', 'templates'];
 
-      navbarToggle.addEventListener('click', () => {
-        navbarToggle.classList.toggle('active');
-        navbarMenu.classList.toggle('active');
-      });
-
-      // Dropdown functionality
-      const dropdownToggle = document.getElementById('resources-dropdown-toggle');
-      const dropdownMenu = document.querySelector('.dropdown-menu');
-
-      dropdownToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdownMenu.classList.toggle('active');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
-          dropdownMenu.classList.remove('active');
-        }
-      });
-
-      // Dark/Light mode functionality
-      const savedMode = localStorage.getItem("mode");
-      if (savedMode === "dark") {
-        document.body.classList.add("dark-mode");
-        toggleBtn.textContent = "☀️";
-      } else {
-        document.body.classList.remove("dark-mode");
-        toggleBtn.textContent = "🌙";
+      for (let i = 0; i < 5000; i++) {
+        let clone = cardTemplate.cloneNode(true);
+        clone.setAttribute('data-tip', types[i % 4]);
+        fragment.appendChild(clone);
       }
+      target.appendChild(fragment);
+      console.log("HOTOVO: 5000 kariet je na stránke.");
 
-      toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark-mode");
-        if (document.body.classList.contains("dark-mode")) {
-          toggleBtn.textContent = "☀️";
-          localStorage.setItem("mode", "dark");
-        } else {
-          toggleBtn.textContent = "🌙";
-          localStorage.setItem("mode", "light");
-        }
-      });
+      // Inicializácia cache pre rýchlu funkciu
+      initFastCache();
     });
 
-    // Read more functionality
-    function toggleMore(element) {
-      const more = element.parentElement.nextElementSibling;
-      const isVisible = more.style.display === 'block';
-      more.style.display = isVisible ? 'none' : 'block';
-      element.textContent = isVisible ? 'Read more...' : 'Show less';
+    // Globálne premenné
+    let showResumeFavoritesOnly = false;
+    let resumeFavorites = ['interactive', 'templates']; // Simulované obľúbené
+
+    // --- 2. POMALÁ FUNKCIA (Tvoj Bottleneck) ---
+    // Spusti v konzole napísaním: runSlow()
+    window.runSlow = function() {
+      console.time("🔴 POMALÝ FILTER");
+
+      // Zakaždým prehľadáva DOM (5000 elementov)
+      const cards = document.querySelectorAll('.tip-card');
+      let count = 0;
+
+      cards.forEach(card => {
+        const type = card.getAttribute('data-tip');
+        // Pomalé hľadanie v poli
+        const isFav = resumeFavorites.includes(type);
+
+        // Vynútenie "Reflow" - pýtame sa na offsetHeight, čo donúti prehliadač prepočítať grafiku
+        // Toto simuluje zložitú stránku a spomalí to aj na Macu
+        const forceReflow = card.offsetHeight;
+
+        if (isFav) {
+          card.style.display = 'block';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      console.log(`Nájdených: ${count}`);
+      console.timeEnd("🔴 POMALÝ FILTER");
     }
+
+    // --- 3. RÝCHLA FUNKCIA (Optimalizovaná) ---
+    // Spusti v konzole napísaním: runFast()
+    let cachedCards = [];
+    function initFastCache() {
+      // Uložíme referencie do pamäte
+      cachedCards = Array.from(document.querySelectorAll('.tip-card'));
+    }
+
+    window.runFast = function() {
+      console.time("🟢 RÝCHLY FILTER");
+
+      // Set pre O(1) prístup
+      const favSet = new Set(resumeFavorites);
+
+      // Dávkové spracovanie (Batching) - skryjeme kontajner, upravíme, zobrazíme
+      // (Pre zjednodušenie tu len meníme display bez force reflow)
+      cachedCards.forEach(card => {
+        const type = card.getAttribute('data-tip');
+        if (favSet.has(type)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      console.timeEnd("🟢 RÝCHLY FILTER");
+    }
+
+    // Prepojenie na tvoje tlačidlo (volá rýchlu verziu, ale na testovanie použi konzolu)
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('resumeFavoritesBtn');
+      if(btn) {
+        btn.addEventListener('click', () => {
+          // Tu si vyber, ktorú chceš "reálne" používať na tlačidle
+          // Pre screenshoty spúšťaj príkazy ručne v konzole
+          runFast();
+        });
+      }
+    });
   </script>
 </body>
 

@@ -1,0 +1,469 @@
+diff --git a/styles/style.css b/styles/style.css
+index 2296bfd..27a2a7f 100644
+--- a/styles/style.css
++++ b/styles/style.css
+@@ -1,13 +1,8 @@
+-/* ==========================================================================
+-   Complete Merged CSS - Timeline Interface + Application Styles
+-   ========================================================================== */
+ 
+-/* Smooth scroll behavior */
+ html {
+   scroll-behavior: smooth;
+ }
+ 
+-/* Reset & Base Styles */
+ html,
+ body {
+   margin: 0;
+@@ -207,14 +202,6 @@ header {
+   transition: all 0.3s ease-in-out;
+ }
+ 
+-#toggle-mode {
+-  background: none;
+-  border: none;
+-  cursor: pointer;
+-  font-size: 1.5rem;
+-  color: white;
+-}
+-
+ @media(max-width:880px) {
+   .navbar {
+     backdrop-filter: none;
+@@ -244,10 +231,6 @@ header {
+     z-index: 999;
+   }
+ 
+-  #toggle-mode {
+-    display: block;
+-  }
+-
+   .navbar-toggle.active .bar:nth-child(2) {
+     opacity: 0;
+   }
+@@ -1195,8 +1178,9 @@ ul li::marker {
+   background-color: #5FCADD;
+ }
+ 
+-/* Toggle Mode Button */
+ #toggle-mode {
++  color: white;
++  display:block;
+   position: absolute;
+   top: 10px;
+   right: 10px;
+@@ -1210,13 +1194,6 @@ ul li::marker {
+   transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+ }
+ 
+-#toggle-mode:hover {
+-  transform: scale(1.1) rotate(180deg);
+-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+-}
+-
+-/* Continuation of the CSS code */
+-
+ #toggle-mode:hover {
+   transform: scale(1.1) rotate(180deg);
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+@@ -1224,7 +1201,6 @@ ul li::marker {
+   border-width: 2px;
+ }
+ 
+-/* Footer */
+ footer {
+   background-color: #28A6C7;
+   color: white;
+@@ -1588,15 +1564,6 @@ footer {
+   background: linear-gradient(145deg, #004e56, #006d77);
+ }
+ 
+-.favorites-stats {
+-  color: #006d77;
+-  font-weight: 600;
+-  font-size: 1rem;
+-}
+-
+-.dark-mode .favorites-stats {
+-  color: #81e6d9;
+-}
+ 
+ /* Favorite Icon for Resource Cards */
+ .resource-favorite-icon {
+@@ -1686,11 +1653,6 @@ footer {
+   transform: translateY(-2px);
+ }
+ 
+-/* ==========================================================================
+-   Responsive Design
+-   ========================================================================== */
+-
+-/* Mobile First Adjustments */
+ @media (max-width: 767px) {
+   #toggle-mode {
+     position: static;
+@@ -1788,9 +1750,6 @@ footer {
+     font-size: 1.85rem;
+   }
+ 
+-  .intro-card p {
+-    max-width: 90%;
+-  }
+ }
+ 
+ .dark-mode .search-bar input {
+@@ -1901,9 +1860,6 @@ footer {
+ 
+ /* Large Desktop Styles */
+ @media (min-width: 1400px) {
+-  .intro-card p {
+-    max-width: 85%;
+-  }
+ }
+ 
+ #scrollToBottom {
+@@ -1956,4 +1912,382 @@ footer {
+ 
+ .dark-mode .intro-card .highlight {
+   color: #FFFFFF;
+-}
+\ No newline at end of file
+
+
+
++body {
++  background: linear-gradient(to right, #e0f7fa, #b2dfdb);
++}
++
++header {
++  background: linear-gradient(135deg, #28A6C7, #004d40);
++  padding: 2rem;
++  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
++}
++
++.container {
++  padding: 2rem;
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
++  gap: 2rem;
++}
++
++.tip-card {
++  background: white;
++  padding: 1.5rem;
++  border-radius: 12px;
++  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
++  transition: transform 0.3s ease, background 0.3s ease;
++  overflow: hidden;
++  position: relative;
++  animation: slideIn 1s ease forwards;
++  opacity: 0;
++}
++
++.tip-card:nth-child(1) {
++  animation-delay: 0.2s;
++}
++
++.tip-card:nth-child(2) {
++  animation-delay: 0.4s;
++}
++
++.tip-card:nth-child(3) {
++  animation-delay: 0.6s;
++}
++
++.tip-card:nth-child(4) {
++  animation-delay: 0.8s;
++}
++
+
++
++.tip-card:hover {
++  transform: scale(1.05);
++  background: linear-gradient(145deg, #e0f2f1, #ffffff);
++}
++
++h2 {
++  margin-top: 0;
++  color: #007c91;
++}
++
++a {
++  display: inline-block;
++  margin-top: 10px;
++  color: #007c91;
++  font-weight: bold;
++  text-decoration: none;
++}
++
++.read-more {
++  color: #007c91;
++  cursor: pointer;
++  font-weight: bold;
++}
++
++.more-content {
++  display: none;
++  margin-top: 0.5rem;
++  color: #444;
++}
++
++/* Filter section spacing */
++#categoryFilter,
++label[for="categoryFilter"] {
++  margin-top: 1.5rem;
++}
++
++label[for="categoryFilter"] {
++  display: inline-block;
++  margin-right: 0.5rem;
++  font-weight: 500;
++}
++
++#categoryFilter {
++  padding: 0.4rem 1rem;
++  border: 1px solid #ccc;
++  border-radius: 6px;
++  font-size: 1rem;
++}
++
++/* Optional - celé zoskupenie pod banner */
++.filter-container {
++  margin: 2rem auto 1rem;
++  text-align: left;
++  width: 90%;
++  max-width: 900px;
++}
++
++/* === Filter Section Styling (shared by both pages) === */
++.filter-container {
++  text-align: center;
++  margin: 2rem auto 1rem;
++  width: 90%;
++  max-width: 800px;
++}
++
++.filter-container label {
++  font-weight: 600;
++  margin-right: 0.5rem;
++  color: #003d33;
++}
++
++.filter-container select {
++  padding: 0.5rem 1rem;
++  border: 1px solid #ccc;
++  border-radius: 8px;
++  font-size: 1rem;
++  background-color: #ffffff;
++  color: #004d40;
++  cursor: pointer;
++  transition: all 0.3s ease;
++}
++
++.filter-container select:hover {
++  border-color: #26a69a;
++  box-shadow: 0 0 5px rgba(38, 166, 154, 0.3);
++}
++
++.filter-container select:focus {
++  outline: none;
++  border-color: #00796b;
++  box-shadow: 0 0 6px rgba(0, 121, 107, 0.5);
++}
++
++/* ========== HERO SECTION ========== */
++.hero-section {
++  background: linear-gradient(135deg, #007c91, #004d40);
++  color: white;
++  text-align: center;
++  padding: 4rem 2rem 3rem 2rem;
++  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
++}
++
++.hero-section h1 {
++  font-size: 2.5rem;
++  font-weight: 700;
++  margin-bottom: 1rem;
++}
++
++.hero-section p {
++  font-size: 1.2rem;
++  font-weight: 400;
++  color: #e0f2f1;
++}
++
++/* ========== FILTER SECTION (ako search bar) ========== */
++.filter-container {
++  display: flex;
++  justify-content: center;
++  align-items: center;
++  gap: 1rem;
++  background: #dbeff0;
++  padding: 1rem 2rem;
++  border-radius: 12px;
++  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
++  width: fit-content;
++  margin: 2rem auto;
++}
++
++.filter-container label {
++  font-weight: 600;
++  color: #004d40;
++}
++
++.filter-container select {
++  padding: 0.6rem 1rem;
++  border-radius: 8px;
++  border: 1px solid #007c91;
++  background: white;
++  font-size: 1rem;
++  color: #004d40;
++  cursor: pointer;
++}
++
++.resume-favorites-controls {
++  display: flex;
++  flex-direction: column;
++  align-items: center;
++  justify-content: center;
++  gap: 10px;
++  margin: 0px auto ;
++  padding: 0 20px;
++  text-align: center;
++}
++
++.favorites-toggle-btn {
++  background: linear-gradient(135deg, #28A6C7, #004d40);
++  color: white;
++  border: none;
++  padding: 10px 20px;
++  border-radius: 8px;
++  cursor: pointer;
++  font-weight: 600;
++  transition: all 0.3s ease;
++}
++
++.favorites-toggle-btn:hover {
++  background: linear-gradient(135deg, #1f8ba8, #003d33);
++  transform: scale(1.05);
++}
++
++.favorites-stats {
++  font-weight: 500;
++  color: #007c91;
++  font-size: 1rem;
++}
++
++/* --- Resume Tips Grid (z tvojho resume-tips.html) --- */
++.tips-grid {
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
++  gap: 2rem;
++  padding: 2rem;
++  max-width: 1200px;
++  margin: 0 auto;
++}
++
++/* --- Dizajn každej karty --- */
++.tip-card,
++.card {
++  background: #ffffff;
++  border-radius: 16px;
++  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
++  padding: 1.8rem;
++  position: relative;
++  transition: all 0.25s ease-in-out;
++}
++
++.tip-card:hover,
++.card:hover {
++  transform: translateY(-5px);
++  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
++}
++
++/* --- Srdiečko --- */
++.resume-favorite-icon {
++  position: absolute;
++  top: 14px;
++  right: 14px;
++  font-size: 1.4rem;
++  color: #d3d3d3;
++  cursor: pointer;
++  transition: all 0.3s ease;
++}
++
++.resume-favorite-icon:hover {
++  color: #ff6b6b;
++  transform: scale(1.1);
++}
++
++.resume-favorite-icon.active {
++  color: #ff6b6b;
++}
++
++/* --- Text --- */
++.tip-card h3,
++.card h3 {
++  color: #006064;
++  margin-top: 0;
++  font-size: 1.3rem;
++}
++
++.tip-card p,
++.card p {
++  color: #333;
++  line-height: 1.5;
++}
++
++.tip-card a,
++.card a {
++  display: inline-block;
++  color: #00838f;
++  font-weight: 600;
++  margin-top: 10px;
++  text-decoration: none;
++}
++
++.tip-card a:hover,
++.card a:hover {
++  text-decoration: underline;
++}
++
++.tip-card {
++  background: #fff;
++  border-radius: 10px;
++  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
++  padding: 1.5rem;
++  transition: transform 0.2s ease, box-shadow 0.2s ease;
++  position: relative;
++}
++
++.tip-card:hover {
++  transform: translateY(-4px);
++  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
++}
++
++.tip-card h3, .tip-card h2 {
++  color: #004d40;
++  margin-bottom: 0.5rem;
++}
++
++.tip-card p {
++  color: #444;
++  line-height: 1.4;
++}
++
++.resume-favorite-icon {
++  position: absolute;
++  top: 10px;
++  right: 10px;
++  cursor: pointer;
++  font-size: 1.3rem;
++  color: #ccc;
++  transition: color 0.3s ease;
++}
++
++.resume-favorite-icon.active i {
++  color: #ff6b6b;
++}
