@@ -13,6 +13,5 @@ jobs:
         uses: cyb3r-jak3/html5validator-action@v7.2.0
         with:
           root: ./
-          # Ignorujeme node_modules ak tam sú, a kontrolujeme len .html
           exclude: node_modules
-          css: true # Skontroluje aj CSS chyby
+          css: true
